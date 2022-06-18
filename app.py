@@ -1,7 +1,7 @@
 import streamlit as st
 # import tensorflow as tf 
 # from   tensorflow import qna
-from transformers import pipeline
+# from transformers import pipeline
 import streamlit.components.v1 as components
 
 
@@ -21,22 +21,22 @@ components.html(
     height=300,
 )
 
-@st.cache(allow_output_mutation = True)
-def load_module():
-     model = pipeline("question-answering", model="deepset/roberta-base-squad2", tokenizer="deepset/roberta-base-squad2")
-     return model
+#@st.cache(allow_output_mutation = True)
+#def load_module():
+#     model = pipeline("question-answering", model="deepset/roberta-base-squad2", tokenizer="deepset/roberta-base-squad2")
+#     return model
      
 def main():
-    qa = load_module()
+#    qa = load_module()
     st.title("Ask questions based on your article")
     articles = st.text_area("Please enter your article")
     quest = st.text_input("Ask your question based on the article")
     button = st.button("Answer")
     with st.spinner("Finding Answer..."):
         if button and articles:
-            answer = qa(question=quest , context=articles)
+ #           answer = qa(question=quest , context=articles)
             #answer = qa.findAnswers(question, passage)
-            st.success(answer['answer'])
+ #          st.success(answer['answer'])
 
 if __name__=='__main__':
     main()
