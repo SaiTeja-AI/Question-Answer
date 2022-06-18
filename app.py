@@ -21,7 +21,7 @@ components.html(
     height=300,
 )
 
-#@st.cache(allow_output_mutation = True)
+@st.cache(allow_output_mutation = True)
 def load_module():
      model = pipeline("question-answering", model="deepset/roberta-base-squad2", tokenizer="deepset/roberta-base-squad2")
      return model
